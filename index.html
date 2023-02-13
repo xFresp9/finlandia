@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>Gestion de cuentas</title>
+    </head>
+    <body>
+        <h1>TAREAS ADMINISTRATIVAS Y SEGURIDAD</h1>
+        <h2>CAMBIO DE CONTRASEÑA</h2>
+        <p>Cualquier usuario puede cambiar su contraseña usando el comando "passwd", de la siguiente manera:</p>
+        <p>passwd</p>
+        <p>Tenga en cuenta que el comando no requiere argumentos.</p>
+        <p>El administrador puede cambiar la contraseña de cualquier usuario. Por ejemplo, suponga que el administrador
+            tiene que cambiar la contraseña de un usuario cuyo login es lisa. Esto se puede lograr escribiendo lo siguiente
+            dominio:
+            
+            </p>
+        <p>passwd lisa</p>
+        <p>Una cosa interesante es que el sistema operativo obliga a los usuarios habituales a crear contraseñas largas, con un
+            mínimo de 5 o 6 caracteres; mientras que el administrador puede crear contraseñas de cualquier longitud. Para
+            ejemplo, si un usuario normal intenta crear la contraseña "123", el sistema no lo permitirá; pero el
+            el administrador podría hacerlo
+            
+            </p>
+        <h2>CREANDO Y BORRANDO USUARIOS</h2>
+        <p>Solo los administradores pueden crear y eliminar cuentas.
+
+        </p>
+        <p>Para crear una cuenta, use el comando "adduser". Por ejemplo, para crear una cuenta cuyo nombre de usuario
+            (iniciar sesión) es lisa, usa el comando:</p>
+        <p>adduser lisa</p>
+        <p>Este comando crea automáticamente el directorio de inicio y el grupo del usuario, ambos llamados lisa. Además,
+            durante la ejecución del comando, el sistema operativo solicitará la introducción del
+            contraseña que se utilizará para ingresar a la cuenta, así como otra información menos relevante como: full
+            nombre del usuario, número de teléfono, etc.
+            
+            </p>
+        <p>Por otro lado, para eliminar una cuenta se utiliza el comando “deluser”. Por ejemplo, para eliminar un
+            cuenta cuyo nombre de usuario (login) es lisa, use el comando:</p>
+        <p>deluser lisa</p>
+        <p>Con este comando se elimina el grupo principal de la cuenta, es decir, el grupo lisa. Pero, el hogar
+            permanece el directorio ubicado en el directorio de inicio. Para eliminar el directorio de inicio debemos agregar el “--
+            opción remove-home”, de la siguiente manera:
+            
+            </p>
+        <p>deluser --remove-home lisa</p>
+        </br>
+        <p>En cualquier caso, el administrador siempre puede eliminar el directorio de inicio de la cuenta mediante el comando:
+
+        </p>
+        <p>rm -r lisa</p>
+        </br>
+        <h2>CREANDO Y BORRANDO GRUPOS</h2>
+        <p>Solo los administradores pueden crear y eliminar grupos.</p>
+        <p>Para crear un grupo, utilice el comando "groupadd". Por ejemplo, para crear un grupo llamado estudiantes vamos a
+            use el siguiente comando:</p>
+        <p>groupadd students</p>
+        <p>Por otro lado, para eliminar grupos se utiliza el comando “groupdel”. Por ejemplo, para eliminar al estudiante
+            grupo usaremos el siguiente comando:</p>
+        <p>student group</p>
+        <h2>AÑADIENDO Y REMOVIENDO USUARIOS DE GRUPOS</h2>
+        <p>Solo los administradores pueden añadir y remover usuarios de grupos</p>
+        <p>Para hacer que un usuario pertenezca a varios grupos, además del propio, se utiliza el comando "usermod" con
+            las opciones a y G. Por ejemplo, para que la usuaria lisa pertenezca a los grupos de profesores y tutores, la
+            Se usarán los siguientes comandos</p>
+        <p>usermod -aG profesores lisa</p>
+        <p>usermod -aG tutores lisa</p>
+        <p>Estos dos comandos se pueden reducir a uno separando los nombres de los grupos con comas:</p>
+        <p>usermod -aG profesores,tutores lisa</p>
+        <p>Tenga en cuenta que no hay espacios en blanco entre los nombres de los grupos y la coma de separación.
+
+        </p>
+        <p>Por otro lado, para eliminar un usuario de un grupo el comando "deluser". Por ejemplo, para quitar el
+            usuario cuyo inicio de sesión es lisa del grupo de tutores, use el siguiente comando:
+            
+            </p>
+        <p>deluser tutores lisa</p>
+        </br>
+        <h2>CAMBIAR EL GRUPO DE UN ARCHIVO O DIRECTORIO
+
+        </h2>
+        <p>By default a file or directory belongs to the group of the user who creates it. To change to the group of
+            the file, use the “chgrp” command. For example, to make the test.txt file belong to the group teachers,
+            use the command:</p>
+        <p>chgrp profesores test.txt</p>
+        <p>Para cambiar el grupo de un directorio y todo su contenido se utiliza la opción R. Por ejemplo:</p>
+        <p>chgrp -R profesores test</p>
+        <p>hace que el directorio de prueba y todo su contenido pertenezcan al grupo de profesores.
+
+        </p>
+    </body>
+</html>
